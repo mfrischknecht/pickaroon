@@ -5,6 +5,9 @@ export interface Config {
     code: {
         transformation: string;
         fetching: string;
+        scratchpad: {
+            [key: string]: string;
+        };
     };
 }
 export default class SharingDialog extends Dialog {

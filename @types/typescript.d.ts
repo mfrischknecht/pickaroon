@@ -6,7 +6,9 @@ export interface StackTraceEntry {
     line: number;
     column: number;
 }
-export declare function transpileTypescriptToJavascript(fileName: string, typescript: string): Promise<string>;
+export declare let waitUntilMonacoIsInitialized: () => Promise<unknown>;
+export declare function transpileTypescriptToJavascript(fileName: string, typescript: string): Promise<any>;
+export declare let waitUntilTypescriptIsInitialized: () => Promise<void>;
 export declare function defaultGlobalOverrides(): any;
 declare type GlobalOverrides = {
     [key: string]: any;

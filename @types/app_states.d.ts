@@ -19,5 +19,11 @@ export interface States {
     transformationCodeJs: State<string>;
     fetchingCodeTs: State<string>;
     fetchingCodeJs: State<string>;
+    scratchpadTexts: State<{
+        [key: string]: string;
+    }>;
+    displayedScratchpadTexts: State<{
+        [key: string]: number;
+    }>;
 }
 export default function init(): States;
