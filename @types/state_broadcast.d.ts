@@ -1,21 +1,6 @@
 import { MessageBus } from './message_bus';
-import { LogEntry } from './log';
-import { TransformedMessage } from './message_transformation';
-import { State, ListState } from './state';
 import Disposable from './disposable';
-export interface States {
-    messages: ListState<any>;
-    transformedMessages: ListState<TransformedMessage>;
-    rawLogs: ListState<LogEntry[]>;
-    selectedMessageIndex: State<number>;
-    selectedSourceMessage: State<any>;
-    selectedTransformedMessage: State<any>;
-    selectedLog: State<LogEntry[]>;
-    transformationCodeTs: State<string>;
-    transformationCodeJs: State<string>;
-    fetchingCodeTs: State<string>;
-    fetchingCodeJs: State<string>;
-}
+import { States } from './app_states';
 export default class StateBroadcast implements Disposable {
     private readonly MESSAGE_TYPE;
     private readonly _isAuthority;

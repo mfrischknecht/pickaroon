@@ -3,6 +3,7 @@ import { TransformedMessage } from "./message_transformation";
 import { EditorBindings } from "./monaco";
 import { ListState, State } from "./state";
 import { Scheme, Theme } from "./theme";
+import { DroppedFiles } from "./message_fetching";
 export interface States {
     preferredColorScheme: State<Scheme>;
     activeTheme: State<Theme>;
@@ -25,5 +26,6 @@ export interface States {
     displayedScratchpadTexts: State<{
         [key: string]: number;
     }>;
+    droppedFiles: State<DroppedFiles>;
 }
 export default function init(): States;
