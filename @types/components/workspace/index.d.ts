@@ -18,6 +18,7 @@ declare class MenuGroup {
     private readonly _menuBarItems;
     constructor(element: HTMLElement);
     addMenuBarItem(item: MenuBarItem): void;
+    clearItems(): void;
 }
 declare class MenuBar implements Disposable {
     readonly visibilityChanged: Event<boolean>;

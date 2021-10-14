@@ -1,25 +1,36 @@
-import * as GoldenLayout from 'golden-layout';
+import { LayoutConfig } from 'golden-layout';
 import { States } from './app_states';
 import Disposable from './disposable';
-export declare function loadConfigFromLocation(): Promise<any>;
-export declare function generateConfigUrl(config: any): Promise<string>;
-export declare function serializeConfig(layout: GoldenLayout.GoldenLayout, states: States): {
-    layout: GoldenLayout.LayoutConfig;
+import { Layout } from './layout';
+export interface Config {
+    layout: LayoutConfig;
     code: {
         fetching: string;
         transformation: string;
         scratchpad: {
-            [key: string]: string;
+            [id: string]: string;
         };
     };
-};
+}
+export declare class UpdateConfig implements Disposable {
+    private readonly _layout;
+    private readonly _states;
+    private readonly _listener;
+    constructor(layout: Layout, states: States);
+    dispose(): void;
+    private updateAttempt;
+    private updateConfig;
+}
 export declare class UpdateUrlHash implements Disposable {
     private readonly _layout;
     private readonly _states;
     private readonly _fetchingChanges;
     private readonly _transformationChanges;
     private readonly _scratchpadChanges;
-    constructor(layout: GoldenLayout.GoldenLayout, states: States);
+    private readonly _stateChangeListener;
+    constructor(layout: Layout, states: States);
     dispose(): void;
+    private updateAttempt;
     private updateHash;
 }
+export declare function loadConfigFromLocation(): Promise<any>;
