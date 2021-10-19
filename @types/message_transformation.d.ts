@@ -25,13 +25,16 @@ export interface Factories {
 export declare class MessageTransformation implements Disposable {
     private readonly _publishLogSubscription;
     private readonly _messages;
+    private readonly _additionalData;
     private readonly _transformedMessages;
     private readonly _rawLogs;
     private readonly _transformationCode;
     private readonly _selectedMessageIndex;
+    private readonly _libraryModules;
     private readonly _messagesLengthListener;
     private readonly _messagesListener;
     private readonly _transformationListener;
+    private readonly _libraryModulesListener;
     private _javascript;
     private _transformation;
     constructor(states: States, messageBus: MessageBus);

@@ -14,7 +14,9 @@ export declare type DroppedFiles = {
 };
 export declare class MessageFetching implements Disposable {
     private readonly _fetchMessagesSubscription;
+    private readonly _libraries;
     private readonly _messages;
+    private readonly _additionalData;
     private readonly _fetchingCodeJs;
     private readonly _droppedFiles;
     private readonly _fetchingCodeListener;

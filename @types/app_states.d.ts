@@ -4,6 +4,7 @@ import { EditorBindings } from "./monaco";
 import { ListState, State } from "./state";
 import { Scheme, Theme } from "./theme";
 import { DroppedFiles } from "./message_fetching";
+import { TypescriptDeclarations, TypescriptLibrary, TypescriptModuleFactory } from "./typescript";
 export interface States {
     preferredColorScheme: State<Scheme>;
     activeTheme: State<Theme>;
@@ -12,14 +13,11 @@ export interface States {
     messages: ListState<any>;
     transformedMessages: ListState<TransformedMessage>;
     rawLogs: ListState<LogEntry[]>;
+    additionalData: State<any>;
     selectedMessageIndex: State<number>;
     selectedSourceMessage: State<any>;
     selectedTransformedMessage: State<any>;
     selectedLog: State<LogEntry[]>;
-    transformationCodeTs: State<string>;
-    transformationCodeJs: State<string>;
-    fetchingCodeTs: State<string>;
-    fetchingCodeJs: State<string>;
     scratchpadTexts: State<{
         [key: string]: string;
     }>;
@@ -27,5 +25,22 @@ export interface States {
         [key: string]: number;
     }>;
     droppedFiles: State<DroppedFiles>;
+    fetchingCodeTs: State<string>;
+    fetchingCodeJs: State<string>;
+    transformationCodeTs: State<string>;
+    transformationCodeJs: State<string>;
+    libraries: State<{
+        [key: string]: TypescriptLibrary;
+    }>;
+    libraryDeclarations: State<{
+        [key: string]: TypescriptDeclarations;
+    }>;
+    libraryCodeTs: State<{
+        [key: string]: string;
+    }>;
+    libraryCodeJs: State<{
+        [key: string]: string;
+    }>;
+    libraryModules: State<TypescriptModuleFactory>;
 }
 export default function init(): States;
