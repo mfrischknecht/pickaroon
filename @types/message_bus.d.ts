@@ -5,6 +5,16 @@ export interface MessageBus {
     subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
     broadcast(messageType: string, ...args: any[]): void;
 }
+export declare class MessageBusProxy implements MessageBus, Disposable {
+    private readonly _upstreamSubscriptions;
+    private readonly _downstreamSubscriptions;
+    private _messageBus;
+    constructor(messageBus?: MessageBus);
+    dispose(): void;
+    setUpstream(messageBus: MessageBus): void;
+    subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
+    broadcast(messageType: string, ...args: any[]): void;
+}
 export declare class ScopedMessageBus implements MessageBus, Disposable {
     readonly scope: string;
     private readonly _messageBus;

@@ -1,11 +1,8 @@
-import Disposable from '../disposable';
+import { TypescriptDeclarationRegistry, TypescriptModules } from '../typescript';
 import { States } from '../app_states';
-import { TypescriptDeclarationRegistry } from '../typescript';
-export declare const importObject: {
-    [key: string]: any;
-};
+import Disposable from '../disposable';
+export declare const modules: TypescriptModules;
 export declare class MaintainLibraryDeclarations implements Disposable {
-    private readonly _states;
     private readonly _declarationsChanged;
     private readonly _registry;
     private readonly _staticImportDeclarations;

@@ -1,7 +1,7 @@
 import { ComponentItemConfig, GoldenLayout, LayoutConfig, JsonValue, DragSource } from "golden-layout";
-import Disposable from "./disposable";
 import { MessageBus } from "./message_bus";
 import { ReadOnlyEvent } from "./event";
+import Disposable from "./disposable";
 export declare function getLayoutConfig(layout: GoldenLayout): LayoutConfig;
 export declare function iterateComponents(config: LayoutConfig): Generator<ComponentItemConfig>;
 export declare function registerLayoutComponent(name: string, constructor: any): void;

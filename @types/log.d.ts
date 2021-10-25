@@ -1,4 +1,4 @@
-import { StackTraceEntry } from "./typescript";
+import { StackTraceEntry, TypescriptSourceMapsRegistry } from "./typescript";
 export interface LogEntry {
     type: 'trace' | 'debug' | 'info' | 'warning' | 'error';
     values: any[];
@@ -17,8 +17,9 @@ declare class AppendOnlyMockConsole {
 }
 export declare class MockConsole {
     private _entries;
-    private readonly _stackTrace;
-    constructor(stackTrace?: () => StackTraceEntry[]);
+    private readonly _sourceMaps;
+    constructor(sourceMaps: TypescriptSourceMapsRegistry);
+    writeToBrowserConsole(entry: LogEntry): void;
     appendOnly(): AppendOnlyMockConsole;
     clear(): void;
     get entries(): LogEntry[];
@@ -27,5 +28,6 @@ export declare class MockConsole {
     log(...args: any[]): void;
     warn(...args: any[]): void;
     error(...args: any[]): void;
+    getStackTrace(): StackTraceEntry[];
 }
 export {};

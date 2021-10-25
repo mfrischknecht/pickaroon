@@ -1,8 +1,9 @@
-import { ListState, State } from './state';
+import { TypescriptSourceMapsRegistry } from './typescript';
 import { LogEntry } from './log';
+import { ListState, State } from './state';
 import { MessageBus } from './message_bus';
-import Disposable from './disposable';
 import { States } from './app_states';
+import Disposable from './disposable';
 export interface MessageDetail {
     language: string;
     content: string;
@@ -23,21 +24,25 @@ export interface Factories {
     selectedMessageIndex: () => State<number>;
 }
 export declare class MessageTransformation implements Disposable {
-    private readonly _publishLogSubscription;
     private readonly _messages;
-    private readonly _additionalData;
     private readonly _transformedMessages;
     private readonly _rawLogs;
+    private readonly _additionalData;
     private readonly _transformationCode;
     private readonly _selectedMessageIndex;
     private readonly _libraryModules;
+    private readonly _messageBus;
+    private readonly _sourceMapRegister;
+    private readonly _publishLogSubscription;
     private readonly _messagesLengthListener;
     private readonly _messagesListener;
     private readonly _transformationListener;
     private readonly _libraryModulesListener;
+    private _sourcemaps;
     private _javascript;
     private _transformation;
-    constructor(states: States, messageBus: MessageBus);
+    private _mockConsole;
+    constructor(states: States, messageBus: MessageBus, sourcemaps: TypescriptSourceMapsRegistry);
     dispose(): void;
     private updateModule;
     private publishRawLogEntry;
@@ -47,5 +52,6 @@ export declare class MessageTransformation implements Disposable {
     private transformMessages;
     private transformMessage;
     private makeLogEntriesSerializable;
+    private compileTransformationModule;
 }
 export declare let exportLogEntrySignal: (messageBus: MessageBus) => (entry: number) => void;

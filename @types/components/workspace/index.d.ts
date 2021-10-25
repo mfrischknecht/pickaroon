@@ -1,5 +1,5 @@
-import Event from '../../event';
 import Disposable from '../../disposable';
+import Event from '../../event';
 export interface MenuBarButton {
     type: 'button';
     text: string;

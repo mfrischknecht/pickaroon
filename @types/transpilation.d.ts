@@ -1,5 +1,5 @@
-import Disposable from "./disposable";
 import { State } from "./state";
+import Disposable from "./disposable";
 export declare class Transpilation implements Disposable {
     private readonly _filename;
     private readonly _typescript;

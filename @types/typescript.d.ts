@@ -1,4 +1,5 @@
 import Disposable from './disposable';
+import { SourceMapConsumer } from 'source-map';
 import { States } from './app_states';
 import { ReadOnlyEvent } from './event';
 export interface StackTraceEntry {
@@ -8,29 +9,34 @@ export interface StackTraceEntry {
     line: number;
     column: number;
 }
+export declare type SourceMaps = {
+    [id: string]: SourceMapConsumer;
+};
 export declare let waitUntilMonacoIsInitialized: () => Promise<unknown>;
-export declare function transpileTypescriptToJavascript(fileName: string, typescript: string): Promise<any>;
+export declare function transpileTypescriptToJavascript(fileName: string, typescript: string): Promise<{
+    javascript: string;
+    declarations: string;
+}>;
 export declare let waitUntilTypescriptIsInitialized: () => Promise<void>;
 export declare function defaultGlobalOverrides(): any;
-declare type GlobalOverrides = {
+export declare function createGlobals(...globals: any[]): any;
+export declare type GlobalOverrides = {
     [key: string]: any;
 };
-declare type Imports = {
+export declare type Imports = {
     [key: string]: any;
 };
-export declare function compileJavascriptModule(javascript: string, imports: Imports, globalOverrides: GlobalOverrides): TypescriptModule;
+export declare function compileJavascriptModule(name: string, javascript: string, require: (name: string) => any, globalOverrides: GlobalOverrides): TypescriptModule;
 export declare type StackTraceTranslation = (stackTrace: string) => string | StackTraceEntry[];
 export interface TypescriptModule {
+    id: string;
     module: any;
-    createStackTraceTranslation: () => Promise<StackTraceTranslation>;
+    sourceMap: SourceMapConsumer | null;
 }
 export declare type TypescriptModules = {
     [key: string]: TypescriptModule;
 };
-export declare type TypescriptModuleFactory = (globals: any) => TypescriptModule;
-export declare type TypescriptModuleFactories = {
-    [key: string]: TypescriptModuleFactory;
-};
+export declare type TypescriptModulesFactory = (globals: any) => TypescriptModules;
 export interface TypescriptDeclarations {
     importName?: string;
     filePath?: string;
@@ -44,6 +50,17 @@ export interface TypescriptLibrary {
     code: string;
 }
 export declare type DeclarationsChangedCallback = (key: string, declarations?: TypescriptDeclarations) => void;
+export declare class TypescriptSourceMapsRegistry {
+    private readonly _sourceMaps;
+    constructor();
+    register(sourcemaps: SourceMaps): Disposable;
+    translateStackTrace(stack: string): StackTraceEntry[];
+    private parseStackTraceEntry;
+    formatStackString(stack: string): string;
+    formatStackTrace(stack: StackTraceEntry[]): string;
+    formatError(error: Error): string;
+    getStackTrace(): StackTraceEntry[];
+}
 export declare class TypescriptDeclarationRegistry implements Disposable {
     private readonly _declarations;
     private readonly _onUpdate;
@@ -57,17 +74,17 @@ export declare class TypescriptDeclarationRegistry implements Disposable {
     loadTypescriptLibraries(): Promise<Disposable>;
 }
 export declare class CompileLibraries implements Disposable {
-    private readonly _builtinImports;
+    private readonly builtInModules;
     private readonly _libraries;
     private readonly _libraryCodeTs;
     private readonly _libraryCodeJs;
     private readonly _libraryDeclarations;
     private readonly _libraryModules;
     private readonly _librariesListener;
-    constructor(states: States, builtinInports: Imports);
+    constructor(states: States, builtInModules: TypescriptModules);
     dispose(): void;
     private _compilationTrigger;
     private _compilationAttempt;
-    private onLibraryChange;
+    private compileLibraries;
+    private createModulesFactory;
 }
-export {};

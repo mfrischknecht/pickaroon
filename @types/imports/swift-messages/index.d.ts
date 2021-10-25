@@ -1,3 +1,3 @@
-export declare let swiftMessageNames: any;
+export declare const swiftMessageNames: any;
 export default swiftMessageNames;
 export declare let typescriptDeclarations: string;

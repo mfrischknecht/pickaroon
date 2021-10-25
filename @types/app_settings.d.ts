@@ -1,7 +1,7 @@
 import { States } from "./app_states";
-import Disposable from "./disposable";
 import { EditorBindings } from "./monaco";
 import { Scheme } from "./theme";
+import Disposable from "./disposable";
 export interface Settings {
     editorBindings: EditorBindings;
     preferredColorScheme: Scheme;

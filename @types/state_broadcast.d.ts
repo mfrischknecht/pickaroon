@@ -1,6 +1,6 @@
 import { MessageBus } from './message_bus';
-import Disposable from './disposable';
 import { States } from './app_states';
+import Disposable from './disposable';
 export default class StateBroadcast implements Disposable {
     private readonly MESSAGE_TYPE;
     private readonly _isAuthority;

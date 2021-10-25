@@ -1,5 +1,5 @@
-import Disposable from './disposable';
 import { States } from './app_states';
+import Disposable from './disposable';
 export declare class MessageSelection implements Disposable {
     private readonly _messages;
     private readonly _transformedMessages;
