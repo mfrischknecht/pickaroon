@@ -48,7 +48,8 @@ export declare class MessageTransformation implements Disposable {
     private publishRawLogEntry;
     private updateMessages;
     private runNonMessageTransform;
-    private _transformationStart;
+    private _transformationRun;
+    private _lastTransformationRun;
     private transformMessages;
     private transformMessage;
     private makeLogEntriesSerializable;
