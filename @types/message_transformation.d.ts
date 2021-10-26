@@ -44,6 +44,8 @@ export declare class MessageTransformation implements Disposable {
     private _mockConsole;
     constructor(states: States, messageBus: MessageBus, sourcemaps: TypescriptSourceMapsRegistry);
     dispose(): void;
+    private _moduleUpdateRun;
+    private _lastModuleUpdateRun;
     private updateModule;
     private publishRawLogEntry;
     private updateMessages;
