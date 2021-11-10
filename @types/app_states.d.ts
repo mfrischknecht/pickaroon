@@ -1,6 +1,6 @@
 import { TypescriptDeclarations, TypescriptModulesFactory } from "./typescript";
 import { Libraries, LocalFiles } from "./static_declarations";
-import { ListState, State } from "./state";
+import { DictionaryState, ListState, State } from "./state";
 import { Scheme, Theme } from "./theme";
 import { TransformedMessage } from "./message_transformation";
 import { EditorBindings } from "./monaco";
@@ -18,12 +18,8 @@ export interface States {
     selectedSourceMessage: State<any>;
     selectedTransformedMessage: State<any>;
     selectedLog: State<LogEntry[]>;
-    scratchpadTexts: State<{
-        [key: string]: string;
-    }>;
-    displayedScratchpadTexts: State<{
-        [key: string]: number;
-    }>;
+    scratchpadTexts: DictionaryState<string>;
+    displayedScratchpadTexts: DictionaryState<number>;
     droppedFiles: State<LocalFiles>;
     libraryFetchingCodeTs: State<string>;
     libraryFetchingCodeJs: State<string>;
@@ -32,15 +28,9 @@ export interface States {
     transformationCodeTs: State<string>;
     transformationCodeJs: State<string>;
     libraries: State<Libraries>;
-    libraryDeclarations: State<{
-        [key: string]: TypescriptDeclarations;
-    }>;
-    libraryCodeTs: State<{
-        [key: string]: string;
-    }>;
-    libraryCodeJs: State<{
-        [key: string]: string;
-    }>;
+    libraryDeclarations: DictionaryState<TypescriptDeclarations>;
+    libraryCodeTs: DictionaryState<string>;
+    libraryCodeJs: DictionaryState<string>;
     libraryModules: State<TypescriptModulesFactory>;
 }
 export default function init(): States;

@@ -15,5 +15,6 @@ export default class StateBroadcast implements Disposable {
     private sendStateValue;
     private sendListStateLength;
     private sendListStateItem;
+    private sendDictionaryStateItem;
     private requestSnapshot;
 }

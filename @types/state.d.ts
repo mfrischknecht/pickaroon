@@ -56,3 +56,31 @@ export declare class ListState<T> implements Disposable {
         value: T;
     }, void, unknown>;
 }
+export interface DictionaryStateUpdate<T> {
+    key: string;
+    oldValue?: T;
+    newValue: T;
+}
+export declare class DictionaryState<T> implements Disposable {
+    private _values?;
+    private _parsedValues?;
+    private _rawValues?;
+    private readonly _onItemChanged;
+    get onItemChanged(): ReadOnlyEvent<DictionaryStateUpdate<T>>;
+    constructor();
+    dispose(): void;
+    get keys(): string[];
+    hasValue(key: string): boolean;
+    hasRawValue(key: string): boolean;
+    getValue(key: string): T;
+    setValue(key: string, value: T): void;
+    deleteValue(key: string): void;
+    clear(): void;
+    getRawValue(index: number): T;
+    values(): {
+        [key: string]: T;
+    };
+    rawValues(): {
+        [key: string]: T;
+    };
+}
