@@ -6,6 +6,9 @@ import { MessageBus } from './message_bus';
 export interface Config {
     layout: LayoutConfig;
     markedMessages: string[];
+    messageNotes: {
+        [id: string]: string;
+    };
     code: {
         libraryFetching: string;
         dataFetching: string;
@@ -33,6 +36,7 @@ export declare class UpdateUrlHash implements Disposable {
     private readonly _transformationChanges;
     private readonly _scratchpadChanges;
     private readonly _messageMarkerChanges;
+    private readonly _messageNotesChanges;
     private readonly _configChangeSignal;
     constructor(layout: Layout, states: States, messageBus: MessageBus);
     dispose(): void;

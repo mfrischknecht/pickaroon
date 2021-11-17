@@ -5,6 +5,7 @@ export declare class DropTargetIndicator implements Disposable {
     private readonly _inner;
     private readonly _text;
     private readonly _onDragStart;
+    private readonly _onDragLeave;
     private readonly _onDragEnd;
     readonly onDrop: Event<DragEvent>;
     constructor(parent: HTMLElement, hintText: string, predicate: (event: DragEvent) => boolean, onDrop?: (event: DragEvent) => void);
