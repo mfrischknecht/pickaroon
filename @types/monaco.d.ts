@@ -24,7 +24,7 @@ export declare class VimMode implements Disposable {
     private readonly _editor;
     private readonly _statusBar;
     private _vimMode;
-    constructor(enabled: State<boolean>, editor: monaco.editor.IStandaloneCodeEditor, statusBar?: HTMLElement);
+    constructor(enabled: State<boolean>, editor: monaco.editor.IEditor, statusBar?: HTMLElement);
     dispose(): void;
     private onStateChange;
 }

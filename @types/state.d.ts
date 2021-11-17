@@ -45,12 +45,12 @@ export declare class ListState<T> implements Disposable {
     getValue(index: number): T;
     setValue(index: number, value: T): void;
     getRawValue(index: number): T;
-    values(): Generator<T, void, unknown>;
+    get values(): T[];
     enumerate(): Generator<{
         index: number;
         value: T;
     }, void, unknown>;
-    rawValues(): Generator<T, void, unknown>;
+    get rawValues(): T[];
     enumerateRawValues(): Generator<{
         index: number;
         value: T;

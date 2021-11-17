@@ -9,6 +9,7 @@ export interface MessageDetail {
     content: string;
 }
 export interface TransformedMessage {
+    id: string;
     original: string;
     text?: string;
     log: LogEntry[];
@@ -25,6 +26,7 @@ export interface Factories {
 }
 export declare class MessageTransformation implements Disposable {
     private readonly _messages;
+    private readonly _messageMarkers;
     private readonly _transformedMessages;
     private readonly _rawLogs;
     private readonly _additionalData;
@@ -48,12 +50,13 @@ export declare class MessageTransformation implements Disposable {
     private _lastModuleUpdateRun;
     private updateModule;
     private publishRawLogEntry;
+    private _updateAttempt;
+    private _update;
     private updateMessages;
-    private runNonMessageTransform;
-    private _transformationRun;
-    private _lastTransformationRun;
     private transformMessages;
+    private runNonMessageTransform;
     private transformMessage;
+    private cleanUpOldMessageData;
     private makeLogEntriesSerializable;
     private compileTransformationModule;
 }

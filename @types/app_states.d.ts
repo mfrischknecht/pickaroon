@@ -15,12 +15,11 @@ export interface States {
     rawLogs: ListState<LogEntry[]>;
     additionalData: State<any>;
     selectedMessageIndex: State<number>;
-    selectedSourceMessage: State<any>;
-    selectedTransformedMessage: State<any>;
-    selectedLog: State<LogEntry[]>;
     scratchpadTexts: DictionaryState<string>;
     displayedScratchpadTexts: DictionaryState<number>;
     droppedFiles: State<LocalFiles>;
+    messageNotes: DictionaryState<string>;
+    messageMarkers: DictionaryState<true>;
     libraryFetchingCodeTs: State<string>;
     libraryFetchingCodeJs: State<string>;
     dataFetchingCodeTs: State<string>;
