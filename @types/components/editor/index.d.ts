@@ -24,6 +24,8 @@ export default class Editor implements Disposable {
     set language(language: string);
     get content(): string;
     set content(content: string);
+    set readOnly(readOnly: boolean);
+    get readOnly(): boolean;
 }
 interface DiffOptions {
     leftContent?: string;

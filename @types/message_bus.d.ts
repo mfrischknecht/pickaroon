@@ -4,6 +4,7 @@ export declare type SubscriptionCallback = (...args: any[]) => void;
 export interface MessageBus {
     subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
     broadcast(messageType: string, ...args: any[]): void;
+    awaitMessage(messageType: string): Promise<any[]>;
 }
 export declare class MessageBusProxy implements MessageBus, Disposable {
     private readonly _upstreamSubscriptions;
@@ -14,6 +15,7 @@ export declare class MessageBusProxy implements MessageBus, Disposable {
     setUpstream(messageBus: MessageBus): void;
     subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
     broadcast(messageType: string, ...args: any[]): void;
+    awaitMessage(messageType: string): Promise<any[]>;
 }
 export declare class ScopedMessageBus implements MessageBus, Disposable {
     readonly scope: string;
@@ -24,6 +26,7 @@ export declare class ScopedMessageBus implements MessageBus, Disposable {
     dispose(): void;
     subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
     broadcast(messageType: string, ...args: any[]): void;
+    awaitMessage(messageType: string): Promise<any[]>;
     private onMessage;
 }
 export default class GoldenLayoutMessageBus implements MessageBus, Disposable {
@@ -34,6 +37,7 @@ export default class GoldenLayoutMessageBus implements MessageBus, Disposable {
     dispose(): void;
     subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
     broadcast(messageType: string, ...args: any[]): void;
+    awaitMessage(messageType: string): Promise<any[]>;
     switchEventHub(newEventHub: EventHub): void;
     private onMessage;
 }

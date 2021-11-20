@@ -30,6 +30,7 @@ export declare class UpdateUrlHash implements Disposable {
     private readonly _layout;
     private readonly _states;
     private readonly _messageBus;
+    private readonly _queryChangeListener;
     private readonly _stateChangeListener;
     private readonly _libraryFetchingChanges;
     private readonly _dataFetchingChanges;

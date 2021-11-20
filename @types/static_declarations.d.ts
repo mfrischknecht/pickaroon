@@ -18,6 +18,7 @@ export declare type Libraries = {
 };
 export interface LoadingArguments {
     localFiles: LocalFiles;
+    query: any;
 }
 export interface LoadedData {
     messages: any[];

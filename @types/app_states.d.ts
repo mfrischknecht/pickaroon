@@ -18,6 +18,7 @@ export interface States {
     scratchpadTexts: DictionaryState<string>;
     displayedScratchpadTexts: DictionaryState<number>;
     droppedFiles: State<LocalFiles>;
+    query: State<any>;
     messageNotes: DictionaryState<string>;
     messageMarkers: DictionaryState<true>;
     libraryFetchingCodeTs: State<string>;

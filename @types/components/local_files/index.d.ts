@@ -1,3 +1,4 @@
-import * as GoldenLayout from 'golden-layout';
+import { ComponentContainer, JsonValue } from 'golden-layout';
 import { States } from '../../app_states';
-export declare let init: (states: States) => (container: GoldenLayout.ComponentContainer, _: GoldenLayout.JsonValue) => Promise<void>;
+import '../../extensions/golden-layout';
+export declare let init: (states: States) => (container: ComponentContainer, _: JsonValue) => Promise<void>;

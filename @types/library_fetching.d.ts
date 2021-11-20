@@ -3,6 +3,7 @@ import { MessageBus } from './message_bus';
 import { States } from './app_states';
 import Disposable from './disposable';
 export declare class LibraryFetching implements Disposable {
+    private readonly _query;
     private readonly _libraries;
     private readonly _fetchingCodeJs;
     private readonly _droppedFiles;
@@ -19,4 +20,4 @@ export declare class LibraryFetching implements Disposable {
     private fetchMessages;
     private getFiles;
 }
-export declare let fetchLibrariesSignal: (messageBus: MessageBus) => () => void;
+export declare let fetchLibrariesSignal: (messageBus: MessageBus) => () => Promise<void>;

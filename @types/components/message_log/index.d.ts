@@ -1,6 +1,7 @@
+import { ComponentContainer, JsonValue } from 'golden-layout';
 import { MessageBus } from '../../message_bus';
 import { States } from '../../app_states';
-import { ComponentContainer, JsonValue } from 'golden-layout';
+import '../../extensions/golden-layout';
 export interface ComponentState {
     messageId: string | null;
 }

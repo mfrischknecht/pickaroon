@@ -60,4 +60,4 @@ export declare class MessageTransformation implements Disposable {
     private makeLogEntriesSerializable;
     private compileTransformationModule;
 }
-export declare let exportLogEntrySignal: (messageBus: MessageBus) => (entry: number) => void;
+export declare let exportLogEntrySignal: (messageBus: MessageBus) => (entry: number) => Promise<void>;
