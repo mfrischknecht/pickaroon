@@ -1,7 +1,12 @@
 import { TypescriptSourceMapsRegistry } from './typescript';
+import { Libraries } from './static_declarations';
 import { MessageBus } from './message_bus';
 import { States } from './app_states';
 import Disposable from './disposable';
+export interface LoadedLibraries {
+    id: string;
+    libraries: Libraries;
+}
 export declare class LibraryFetching implements Disposable {
     private readonly _query;
     private readonly _libraries;
@@ -20,4 +25,4 @@ export declare class LibraryFetching implements Disposable {
     private fetchMessages;
     private getFiles;
 }
-export declare let fetchLibrariesSignal: (messageBus: MessageBus) => () => Promise<void>;
+export declare let fetchLibrariesSignal: (messageBus: MessageBus) => () => Promise<string>;

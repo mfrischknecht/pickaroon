@@ -36,7 +36,10 @@ export interface TypescriptModule {
 export declare type TypescriptModules = {
     [key: string]: TypescriptModule;
 };
-export declare type TypescriptModulesFactory = (globals: any) => TypescriptModules;
+export interface TypescriptModulesFactory {
+    id: string;
+    createModules(globals: any): TypescriptModules;
+}
 export interface TypescriptDeclarations {
     importName?: string;
     filePath?: string;

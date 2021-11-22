@@ -1,10 +1,11 @@
 import { TypescriptDeclarations, TypescriptModulesFactory } from "./typescript";
-import { Libraries, LocalFiles } from "./static_declarations";
+import { LocalFiles } from "./static_declarations";
 import { DictionaryState, ListState, State } from "./state";
 import { Scheme, Theme } from "./theme";
 import { TransformedMessage } from "./message_transformation";
 import { EditorBindings } from "./monaco";
 import { LogEntry } from "./log";
+import { LoadedLibraries } from "./library_fetching";
 export interface States {
     preferredColorScheme: State<Scheme>;
     activeTheme: State<Theme>;
@@ -27,7 +28,7 @@ export interface States {
     dataFetchingCodeJs: State<string>;
     transformationCodeTs: State<string>;
     transformationCodeJs: State<string>;
-    libraries: State<Libraries>;
+    libraries: State<LoadedLibraries>;
     libraryDeclarations: DictionaryState<TypescriptDeclarations>;
     libraryCodeTs: DictionaryState<string>;
     libraryCodeJs: DictionaryState<string>;

@@ -12,6 +12,7 @@ export declare class State<T> implements Disposable {
     get onUpdate(): ReadOnlyEvent<StateUpdate<T>>;
     constructor();
     dispose(): void;
+    awaitValue(predicate: (value: T) => boolean): Promise<T>;
     get hasValue(): boolean;
     get hasRawValue(): boolean;
     get value(): T;
