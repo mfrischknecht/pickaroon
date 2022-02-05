@@ -1,17 +1,14 @@
 import { TypescriptSourceMapsRegistry } from './typescript';
 import { LogEntry } from './log';
 import { ListState, State } from './state';
+import { LogText, MessageDetail } from './static_declarations';
 import { MessageBus } from './message_bus';
 import { States } from './app_states';
 import Disposable from './disposable';
-export interface MessageDetail {
-    language: string;
-    content: string;
-}
 export interface TransformedMessage {
     id: string;
     original: string;
-    text?: string;
+    text?: LogText;
     log: LogEntry[];
     details: {
         [name: string]: MessageDetail;
@@ -27,6 +24,7 @@ export interface Factories {
 export declare class MessageTransformation implements Disposable {
     private readonly _messages;
     private readonly _messageMarkers;
+    private readonly _messageNotes;
     private readonly _transformedMessages;
     private readonly _rawLogs;
     private readonly _additionalData;
@@ -38,6 +36,7 @@ export declare class MessageTransformation implements Disposable {
     private readonly _publishLogSubscription;
     private readonly _messagesLengthListener;
     private readonly _messagesListener;
+    private readonly _notesListener;
     private readonly _transformationListener;
     private readonly _libraryModulesListener;
     private _sourcemaps;

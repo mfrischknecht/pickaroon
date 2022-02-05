@@ -23,6 +23,25 @@ export interface LoadingArguments {
 export interface LoadedData {
     messages: any[];
     additionalData: AdditionalData;
-    libraries: Libraries;
+}
+export interface MessageTransformationResult {
+    log: LogText;
+    details?: {
+        [name: string]: MessageDetail;
+    };
+}
+export declare type LogText = LogText[] | FormattedText | string;
+export interface FormattedText {
+    content: LogText;
+    href?: string;
+    color?: string;
+    backgroundColor?: string;
+    fontWeight?: string;
+    fontStyle?: string;
+    textDecoration?: string;
+}
+export interface MessageDetail {
+    language: string;
+    content: string;
 }
 export default function registerStaticDeclarations(declarations: TypescriptDeclarationRegistry): import("./disposable").default;

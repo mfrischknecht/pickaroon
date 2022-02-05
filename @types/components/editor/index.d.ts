@@ -19,6 +19,7 @@ export default class Editor implements Disposable {
     private readonly _bindingsListener;
     constructor(element: HTMLElement, states: States, options?: Options);
     dispose(): void;
+    scrollToTop(): void;
     private updateBindings;
     get language(): string;
     set language(language: string);
@@ -53,6 +54,7 @@ export declare class DiffEditor implements Disposable {
     private readonly _rightDropTargets;
     constructor(element: HTMLElement, states: States, options?: DiffOptions);
     dispose(): void;
+    scrollToTop(): void;
     private registerDropTarget;
     registerLeftDropTarget(hintText: string, predicate: (event: DragEvent) => boolean, onDrop?: (event: DragEvent) => void): DropTargetIndicator;
     registerRightDropTarget(hintText: string, predicate: (event: DragEvent) => boolean, onDrop?: (event: DragEvent) => void): DropTargetIndicator;
