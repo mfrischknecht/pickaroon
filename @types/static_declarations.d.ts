@@ -39,6 +39,7 @@ export interface FormattedText {
     fontWeight?: string;
     fontStyle?: string;
     textDecoration?: string;
+    tooltip?: string;
 }
 export interface MessageDetail {
     language: string;

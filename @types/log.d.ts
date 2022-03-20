@@ -1,11 +1,17 @@
 import { StackTraceEntry, TypescriptSourceMapsRegistry } from "./typescript";
+export declare type LogEntryType = 'trace' | 'debug' | 'info' | 'warning' | 'error';
 export interface LogEntry {
-    type: 'trace' | 'debug' | 'info' | 'warning' | 'error';
-    values: any[];
+    type: LogEntryType;
+    values: LogEntryValue[];
     stackTrace: StackTraceEntry[];
 }
-export declare function makeEntrySerializable(entry: LogEntry): LogEntry;
-export declare function makeEntriesSerializable(entries: LogEntry[]): LogEntry[];
+export declare type LogEntryValueType = 'string' | 'json' | 'Error' | 'StackTrace' | 'undefined';
+export interface LogEntryValue {
+    type: LogEntryValueType;
+    value: any;
+    displayString: string;
+    stack?: StackTraceEntry[];
+}
 declare class AppendOnlyMockConsole {
     private readonly _console;
     constructor(console: MockConsole);
@@ -28,6 +34,8 @@ export declare class MockConsole {
     log(...args: any[]): void;
     warn(...args: any[]): void;
     error(...args: any[]): void;
+    storeEntry(type: LogEntryType, values: any[]): void;
+    toLogEntryValue(value: any): LogEntryValue;
     getStackTrace(): StackTraceEntry[];
 }
 export {};
