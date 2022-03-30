@@ -26,7 +26,7 @@ export declare type GlobalOverrides = {
 export declare type Imports = {
     [key: string]: any;
 };
-export declare function compileJavascriptModule(name: string, javascript: string, require: (name: string) => any, globalOverrides: GlobalOverrides): TypescriptModule;
+export declare function compileJavascriptModule(name: string, javascript: string, require: (name: string) => any, globalOverrides: GlobalOverrides): Promise<() => TypescriptModule>;
 export declare type StackTraceTranslation = (stackTrace: string) => string | StackTraceEntry[];
 export interface TypescriptModule {
     id: string;
@@ -38,7 +38,7 @@ export declare type TypescriptModules = {
 };
 export interface TypescriptModulesFactory {
     id: string;
-    createModules(globals: any): TypescriptModules;
+    createModules(globals: any): Promise<TypescriptModules>;
 }
 export interface TypescriptDeclarations {
     importName?: string;
