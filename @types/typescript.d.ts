@@ -13,7 +13,7 @@ export declare type SourceMaps = {
     [id: string]: SourceMapConsumer;
 };
 export declare let waitUntilMonacoIsInitialized: () => Promise<unknown>;
-export declare function transpileTypescriptToJavascript(fileName: string, typescript: string): Promise<{
+export declare function transpileTypescriptToJavascript(fileName: string, declarations: TypescriptDeclarationRegistry | null, typescript: string): Promise<{
     javascript: string;
     declarations: string;
 }>;
@@ -69,6 +69,9 @@ export declare class TypescriptDeclarationRegistry implements Disposable {
     private readonly _onUpdate;
     constructor();
     dispose(): void;
+    get declarations(): {
+        [id: string]: TypescriptDeclarationSet;
+    };
     get onUpdate(): ReadOnlyEvent<TypescriptDeclarationSet>;
     declare(declarations: TypescriptDeclarationSet): Disposable;
     private undeclare;
@@ -83,8 +86,9 @@ export declare class CompileLibraries implements Disposable {
     private readonly _libraryCodeJs;
     private readonly _libraryDeclarations;
     private readonly _libraryModules;
+    private readonly _declarationRegistry;
     private readonly _librariesListener;
-    constructor(states: States, builtInModules: TypescriptModules);
+    constructor(states: States, declarationRegistry: TypescriptDeclarationRegistry, builtInModules: TypescriptModules);
     dispose(): void;
     private _compilationTrigger;
     private _compilationAttempt;

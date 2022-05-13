@@ -23,7 +23,6 @@ export interface Factories {
 }
 export declare class MessageTransformation implements Disposable {
     private readonly _messages;
-    private readonly _messageMarkers;
     private readonly _messageNotes;
     private readonly _transformedMessages;
     private readonly _rawLogs;
