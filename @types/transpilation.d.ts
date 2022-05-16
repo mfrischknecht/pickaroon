@@ -6,9 +6,10 @@ export declare class Transpilation implements Disposable {
     private readonly _declarations;
     private readonly _typescript;
     private readonly _javascript;
-    private readonly _typescriptChanges;
     private readonly _firstTranspilation;
     private _currentTranspilation;
+    private readonly _typescriptChanges;
+    private readonly _declarationChanges;
     constructor(filename: string, declarations: TypescriptDeclarationRegistry, typescript: State<string>, javascript: State<string>);
     dispose(): void;
     waitUntilInitialized(): Promise<void>;

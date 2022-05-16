@@ -13,10 +13,7 @@ export declare type SourceMaps = {
     [id: string]: SourceMapConsumer;
 };
 export declare let waitUntilMonacoIsInitialized: () => Promise<unknown>;
-export declare function transpileTypescriptToJavascript(fileName: string, declarations: TypescriptDeclarationRegistry | null, typescript: string): Promise<{
-    javascript: string;
-    declarations: string;
-}>;
+export declare function transpileTypescriptToJavascript(fileName: string, declarations: TypescriptDeclarationRegistry | null, typescript: string): Promise<import("./typescript/types").TranspilationResult>;
 export declare let waitUntilTypescriptIsInitialized: () => Promise<void>;
 export declare function defaultGlobalOverrides(): any;
 export declare function createGlobals(...globals: any[]): any;
