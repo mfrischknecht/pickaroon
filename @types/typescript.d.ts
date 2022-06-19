@@ -13,7 +13,7 @@ export declare type SourceMaps = {
     [id: string]: SourceMapConsumer;
 };
 export declare let waitUntilMonacoIsInitialized: () => Promise<unknown>;
-export declare function transpileTypescriptToJavascript(fileName: string, declarations: TypescriptDeclarationRegistry | null, typescript: string): Promise<import("./typescript/types").TranspilationResult>;
+export declare function transpileTypescriptToJavascript(fileName: string, declarations: TypescriptDeclarationSet[] | null, typescript: string): Promise<import("./typescript/types").TranspilationResult>;
 export declare let waitUntilTypescriptIsInitialized: () => Promise<void>;
 export declare function defaultGlobalOverrides(): any;
 export declare function createGlobals(...globals: any[]): any;
@@ -84,6 +84,7 @@ export declare class CompileLibraries implements Disposable {
     private readonly _libraryDeclarations;
     private readonly _libraryModules;
     private readonly _declarationRegistry;
+    private readonly _scriptDiagnostics;
     private readonly _librariesListener;
     constructor(states: States, declarationRegistry: TypescriptDeclarationRegistry, builtInModules: TypescriptModules);
     dispose(): void;

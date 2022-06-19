@@ -20,17 +20,21 @@ declare class MenuGroup {
     addMenuBarItem(item: MenuBarItem): void;
     clearItems(): void;
 }
+declare type MenuBarPosition = 'top' | 'bottom' | 'left' | 'right';
 declare class MenuBar implements Disposable {
     readonly visibilityChanged: Event<boolean>;
     private _visible;
+    private readonly _resizeObserver;
+    private readonly _position;
     private readonly _element;
     private readonly _groups;
-    constructor(element: HTMLElement);
+    constructor(element: HTMLElement, position: MenuBarPosition);
     dispose(): void;
     get visible(): boolean;
     set visible(visible: boolean);
     get groups(): MenuGroup[];
     addGroup(): MenuGroup;
+    private adjustDimensionsToScrollbars;
 }
 declare class MenuBars {
     readonly top: MenuBar;

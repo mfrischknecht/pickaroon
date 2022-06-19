@@ -6,6 +6,7 @@ import { TransformedMessage } from "./message_transformation";
 import { EditorBindings } from "./monaco";
 import { LogEntry } from "./log";
 import { LoadedLibraries } from "./library_fetching";
+import { Diagnostic } from "./typescript/types";
 export interface States {
     preferredColorScheme: State<Scheme>;
     activeTheme: State<Theme>;
@@ -33,5 +34,6 @@ export interface States {
     libraryCodeTs: DictionaryState<string>;
     libraryCodeJs: DictionaryState<string>;
     libraryModules: State<TypescriptModulesFactory>;
+    scriptDiagnostics: DictionaryState<Diagnostic[]>;
 }
 export default function init(): States;
