@@ -4,7 +4,7 @@ interface LabeledOption {
     label: string;
     value: string;
 }
-declare type Option = string | LabeledOption;
+type Option = string | LabeledOption;
 export declare class RadioButtons implements Disposable {
     private readonly _id;
     private readonly _element;

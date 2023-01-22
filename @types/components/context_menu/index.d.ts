@@ -6,8 +6,8 @@ export interface MenuOption {
 export interface MenuSeparator {
     type: 'separator';
 }
-export declare type MenuEntry = MenuOption | MenuSeparator;
-export declare type Position = {
+export type MenuEntry = MenuOption | MenuSeparator;
+export type Position = {
     x: number;
     y: number;
 };

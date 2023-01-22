@@ -9,7 +9,7 @@ export interface StackTraceEntry {
     line: number;
     column: number;
 }
-export declare type SourceMaps = {
+export type SourceMaps = {
     [id: string]: SourceMapConsumer;
 };
 export declare let waitUntilMonacoIsInitialized: () => Promise<unknown>;
@@ -17,20 +17,20 @@ export declare function transpileTypescriptToJavascript(fileName: string, declar
 export declare let waitUntilTypescriptIsInitialized: () => Promise<void>;
 export declare function defaultGlobalOverrides(): any;
 export declare function createGlobals(...globals: any[]): any;
-export declare type GlobalOverrides = {
+export type GlobalOverrides = {
     [key: string]: any;
 };
-export declare type Imports = {
+export type Imports = {
     [key: string]: any;
 };
 export declare function compileJavascriptModule(name: string, javascript: string, require: (name: string) => any, globalOverrides: GlobalOverrides): Promise<() => TypescriptModule>;
-export declare type StackTraceTranslation = (stackTrace: string) => string | StackTraceEntry[];
+export type StackTraceTranslation = (stackTrace: string) => string | StackTraceEntry[];
 export interface TypescriptModule {
     id: string;
     module: any;
     sourceMap: SourceMapConsumer | null;
 }
-export declare type TypescriptModules = {
+export type TypescriptModules = {
     [key: string]: TypescriptModule;
 };
 export interface TypescriptModulesFactory {
@@ -42,14 +42,14 @@ export interface TypescriptDeclarations {
     filePath?: string;
     declarations: string;
 }
-export declare type TypescriptDeclarationSet = {
+export type TypescriptDeclarationSet = {
     [key: string]: TypescriptDeclarations;
 };
 export interface TypescriptLibrary {
     importName: string;
     code: string;
 }
-export declare type DeclarationsChangedCallback = (key: string, declarations?: TypescriptDeclarations) => void;
+export type DeclarationsChangedCallback = (key: string, declarations?: TypescriptDeclarations) => void;
 export declare class TypescriptSourceMapsRegistry {
     private readonly _sourceMaps;
     constructor();

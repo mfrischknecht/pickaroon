@@ -12,7 +12,7 @@ export interface MenuBarComponent {
     type: 'component';
     init: (element: HTMLElement) => void;
 }
-export declare type MenuBarItem = MenuBarButton | MenuBarSeparator | MenuBarComponent;
+export type MenuBarItem = MenuBarButton | MenuBarSeparator | MenuBarComponent;
 declare class MenuGroup {
     private readonly _element;
     private readonly _menuBarItems;
@@ -20,7 +20,7 @@ declare class MenuGroup {
     addMenuBarItem(item: MenuBarItem): void;
     clearItems(): void;
 }
-declare type MenuBarPosition = 'top' | 'bottom' | 'left' | 'right';
+type MenuBarPosition = 'top' | 'bottom' | 'left' | 'right';
 declare class MenuBar implements Disposable {
     readonly visibilityChanged: Event<boolean>;
     private _visible;

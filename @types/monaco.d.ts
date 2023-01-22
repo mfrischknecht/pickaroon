@@ -2,7 +2,7 @@ import * as monaco from 'monaco-editor';
 import { State } from './state';
 import { States } from './app_states';
 import Disposable from './disposable';
-export declare type EditorBindings = 'normal' | 'vim';
+export type EditorBindings = 'normal' | 'vim';
 export declare function initialize(): void;
 export declare class MonacoTheme implements Disposable {
     private readonly _states;

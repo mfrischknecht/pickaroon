@@ -1,5 +1,5 @@
 import Dialog from '../dialog';
-export declare type SplashscreenTask = {
+export type SplashscreenTask = {
     description: string;
     promise: Promise<any> | null;
 };

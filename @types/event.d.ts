@@ -1,5 +1,5 @@
 import Disposable from './disposable';
-export declare type Callback<T> = (arg: T) => void;
+export type Callback<T> = (arg: T) => void;
 export interface ReadOnlyEvent<T> {
     registerListener(callback: Callback<T>): Disposable;
 }

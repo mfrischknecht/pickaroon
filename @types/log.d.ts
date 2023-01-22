@@ -1,11 +1,11 @@
 import { StackTraceEntry, TypescriptSourceMapsRegistry } from "./typescript";
-export declare type LogEntryType = 'trace' | 'debug' | 'info' | 'warning' | 'error';
+export type LogEntryType = 'trace' | 'debug' | 'info' | 'warning' | 'error';
 export interface LogEntry {
     type: LogEntryType;
     values: LogEntryValue[];
     stackTrace: StackTraceEntry[];
 }
-export declare type LogEntryValueType = 'string' | 'json' | 'Error' | 'StackTrace' | 'undefined';
+export type LogEntryValueType = 'string' | 'json' | 'Error' | 'StackTrace' | 'undefined';
 export interface LogEntryValue {
     type: LogEntryValueType;
     value: any;

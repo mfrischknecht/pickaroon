@@ -1,6 +1,6 @@
 import { EventHub } from 'golden-layout';
 import Disposable from './disposable';
-export declare type SubscriptionCallback = (...args: any[]) => void;
+export type SubscriptionCallback = (...args: any[]) => void;
 export interface MessageBus {
     subscribe(messageType: string, callback: SubscriptionCallback): Disposable;
     broadcast(messageType: string, ...args: any[]): void;

@@ -7,13 +7,13 @@ export interface LocalFile {
     text: () => Promise<string>;
     stream: () => ReadableStream<any>;
 }
-export declare type LocalFiles = {
+export type LocalFiles = {
     [name: string]: LocalFile;
 };
-export declare type AdditionalData = {
+export type AdditionalData = {
     [key: string]: any;
 };
-export declare type Libraries = {
+export type Libraries = {
     [name: string]: string;
 };
 export interface LoadingArguments {
@@ -30,7 +30,7 @@ export interface MessageTransformationResult {
         [name: string]: MessageDetail;
     };
 }
-export declare type LogText = LogText[] | FormattedText | string;
+export type LogText = LogText[] | FormattedText | string;
 export interface FormattedText {
     content: LogText;
     href?: string;

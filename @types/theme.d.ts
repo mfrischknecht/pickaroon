@@ -1,7 +1,7 @@
 import { States } from "./app_states";
 import Disposable from "./disposable";
-export declare type Theme = 'light' | 'dark';
-export declare type Scheme = 'auto' | Theme;
+export type Theme = 'light' | 'dark';
+export type Scheme = 'auto' | Theme;
 export declare class ActiveTheme implements Disposable {
     private readonly _preferredColorScheme;
     private readonly _activeTheme;
